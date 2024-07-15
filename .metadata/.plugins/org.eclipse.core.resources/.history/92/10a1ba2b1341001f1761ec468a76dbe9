@@ -1,0 +1,5 @@
+package com.soumya.app.service;
+
+public class ProductService {
+
+}

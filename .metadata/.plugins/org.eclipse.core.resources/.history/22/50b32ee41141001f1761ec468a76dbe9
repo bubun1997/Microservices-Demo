@@ -1,0 +1,17 @@
+package com.soumya.app.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "products")
+public class Product {
+	
+	private Long productId;
+	
+	private String name;
+	
+	private Double price;
+	
+	private Long customerid;
+}
