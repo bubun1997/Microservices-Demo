@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestClient;
 
 import com.soumya.app.dto.Product;
@@ -28,6 +29,7 @@ public class CustomerService {
 	@Autowired
 	private RestClient restClient;
 	
+	@Transactional
 	public Customer addCustomer(Customer cust) {
 		
 		 Customer savedCustomer = this.customerRepository.save(cust);
@@ -69,9 +71,9 @@ public class CustomerService {
 
 			
 			List<Product> productsByCustomer = products.
-												 stream().
-												 filter(product -> customer.getCustomerId().equals(product.getCustomerid())).
-												 collect(Collectors.toList());
+											   stream().
+											   filter(product -> customer.getCustomerId().equals(product.getCustomerid())).
+											   collect(Collectors.toList());
 			
 			 customer.setProducts(productsByCustomer);
 			
